@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sk-deployment-resource
+  labels:
+    app: sk
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sk
+  template:
+    metadata:
+      labels:
+        app: sk
+    spec:
+      containers:
+      - name: sk-deployment-container
+        image: asifsk/python:v1
+        ports:
+        - containerPort: 8000
